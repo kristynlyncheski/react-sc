@@ -1,0 +1,67 @@
+@import '../../../theme/abstracts';
+
+.form-radio {
+  position: relative;
+  display: inline-block;
+  margin: 10px 0;
+  width: 20%;
+
+  input[type=radio] {
+    @include hidden();
+
+    &:checked ~ label {
+      color: $color-text-primary;
+
+      &::before {
+        background-color: $color-button-primary;
+        border-color: transparent;
+      }
+
+      &::after {
+        background-color: $color-button-text-primary;
+      }
+    }
+  }
+
+  label {
+    padding-left: 30px;
+    font-family: $font-secondary;
+    color: $color-text-secondary;
+    font-weight: normal;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+      background-color: $color-input-background;
+      border: solid 1px transparent;
+      border-radius: 50%;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 7px;
+      display: inline-block;
+      height: 6px;
+      width: 6px;
+      background-color: transparent;
+      border-radius: 50%;
+    }
+
+    &:focus,
+    &:active {
+      &::before {
+        border-color: $color-input-active-border;
+      }
+    }
+
+    &:hover {
+      color: $color-text-primary;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.modal {
+    .modal-header {
+        background: #242A2E;
+        height: 62px;
+        padding: 21px;
+
+        .modal-title {
+            text-transform: uppercase;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .close {
+            background-image: url('../../assets/remove_light.svg') !important;
+            margin-top: 4px !important;
+        }
+    }
+}
+
+.close {
+    width: 11px;
+    height: 11px;
+    background-repeat: no-repeat !important;
+    color: #000;
+    display: inline-block;
+    filter: alpha(opacity=20);
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    margin-top: 0px;
+    margin-right: 0px;
+    opacity: .2;
+    outline: none;
+    text-indent: -10000px;
+    text-shadow: 0 1px 0 #fff;
+}

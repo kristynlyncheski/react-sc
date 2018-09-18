@@ -1,0 +1,69 @@
+@import "../../../theme/abstracts";
+
+.form-row {
+  position: relative;
+
+  label span {
+    @include font-definition(primary, 14);
+    color: $color-text-body-inverse;
+  }
+}
+
+.app-form {
+
+  // so cursor/pointer shows over the 'choose file' text
+  input[type='file'].file-input {
+    font-size: 0;
+  }
+
+  .file-input {
+    cursor: pointer;
+    position: relative;
+
+    border: solid 1px transparent;
+    width: 100%;
+    background-color: $color-input-background !important;
+    min-height: 50px;
+    padding: 10px 15px;
+    margin: 0;
+    transition: border 0.3s ease-in-out;
+    color: $color-text-primary;
+    cursor: pointer;
+
+    &::placeholder {
+      box-sizing: border-box;
+      color: $color-text-body;
+      // background-color: $color-background-white;
+      display: inline-block;
+      // max-width: 80px;
+      height: 100%;
+      // max-width: 140px;
+      // width: 100%;
+      // text-align: center;
+      // padding: 10px 25px;
+      // border-radius: 25px;
+      // position: relative;
+      // left: -10px;
+      cursor: pointer;
+    }
+  }
+
+  // TODO: Fix this. This is a hack for IE. Placeholder doesn't show.
+  // .file-upload-button {
+  //   box-sizing: border-box;
+  //   color: $color-text-body;
+  //   background-color: $color-background-white;
+  //   display: inline-block;
+  //   // max-width: 80px;
+  //   max-width: 140px;
+  //   text-align: center;
+  //   padding: 8px 25px;
+  //   border-radius: 25px;
+  //   position: absolute;
+  //   left: 8px;
+  //   bottom: 4px;
+  //   z-index: 5;
+  //   pointer-events: none;
+  //   @include font-definition(primary, 16);
+  // }
+}

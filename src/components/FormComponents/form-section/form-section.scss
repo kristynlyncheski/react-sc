@@ -1,0 +1,44 @@
+@import "../../../theme/abstracts";
+
+.app-form-section {
+  display: flex;
+  margin-bottom: $spacing-small / 2;
+
+  @media #{$gl-xs-only} {
+    margin-bottom: $spacing-small-mobile / 2;
+  }
+
+  .form-section-container {
+    display: flex;
+  }
+
+  .form-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &.collapsible {
+    legend {
+      cursor: pointer;
+    }
+  }
+
+  legend {
+    position: relative;
+
+    .app-icon {
+      position: absolute;
+      top: 50%;
+      margin-top: -25px;
+      right: 10px;
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  &.collapsed {
+    .form-column {
+      display: none;
+    }
+  }
+}
