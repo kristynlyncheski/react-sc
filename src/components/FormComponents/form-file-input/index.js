@@ -1,145 +1,60 @@
-import React, { Component, PropTypes as PT } from 'react'
-import classNames from 'classnames'
-import { parseResume } from 'actions/app-form'
+import React, { Component } from 'react'
+import { PropTypes as PT } from 'prop-types'
+import { FormGroup, FormControl, ControlLabel, Col } from 'react-bootstrap'
+
 import './form-file-input.scss'
-
-var FileInput = require('react-file-input')
-
-const { fetch } = require('fetch-ponyfill')()
-
 
 export default class FormFileInput extends Component {
 
-  constructor (props) {
-    super(props)
-    this.state = {
-      sizeSmallError: false,
-      sizeLargeError: false,
-      typeError: false,
-      fileUploaded: false
-    }
-    this.onChangeValue = this.onChangeValue.bind(this)
-  }
-
   static propTypes = {
-    id: PT.string.isRequired,
-    name: PT.string,
-    isRequired: PT.bool,
-    label: PT.string,
-    placeholder: PT.string,
-    onChange: PT.func,
-    validate: PT.bool
+    field: PT.shape({
+      id: PT.string.isRequired,
+      name: PT.string,
+      isRequired: PT.bool,
+      isInline: PT.bool,
+      label: PT.string,
+      placeholder: PT.string,
+    })
   }
 
   static defaultProps = {
-    isRequired: false,
-    onChange: () => {},
-    validate: false
-  }
-
-  renderLabelFor () {
-    const { label, id, isRequired } = this.props
-    if (label) {
-      return (
-        <label htmlFor={id}>
-          {label}
-          {isRequired ? <span className='required'>*</span> : false}
-          <br />
-          <span>Accepted files: .pdf, .txt, .doc, .docx, .html, .rtf. Max size 20MB.</span>
-        </label>
-      )
-    }
-    return false
-  }
-
-  onChangeValue (e) {
-    const { onChange, name, type, dispatch } = this.props
-
-    let file = e.target.files[0]
-    let reader = new FileReader()
-
-    this.setState({
-      fileUploaded: true
-    })
-
-    // file can't be larger than 20MB, must be larger than 0 bytes
-    if (file && file.size > 20000000) {
-      this.setState({
-        sizeLargeError: true,
-        sizeSmallError: false
-      })
-    } else if (file && file.size <= 0) {
-      this.setState({
-        sizeSmallError: true,
-        sizeLargeError: false
-      })
-    } else {
-      this.setState({
-        sizeSmallError: false,
-        sizeLargeError: false
-      })
-    }
-
-    // check file type
-    const validFileTypes = ['text/plain', 'text/html', 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/rtf']
-
-    if (file && validFileTypes.indexOf(file.type) === -1) {
-      this.setState({
-        typeError: true
-      })
-    } else {
-      this.setState({
-        typeError: false
-      })
-    }
-
-    if (!file) {
-      this.props.onChange({
-        name,
-        value: null,
-        invalid: this.getValidation(file).isInvalid
-      })
-    }
-
-    if (file) {
-      reader.onloadend = () => {
-        this.props.onChange({
-          name,
-          value: file,
-          invalid: this.getValidation(file).isInvalid
-        })
-      }
-
-      if (name === 'resume') {
-        dispatch(parseResume(file))
-      }
-
-      reader.readAsDataURL(file)
+    field: {
+      type: 'file',
+      isRequired: false,
+      isInline: false,
+      value: '',
+      placeholder: 'Select file'
     }
   }
-
+  
   render () {
-    const { name, id, type, isRequired, isInline, placeholder, validate } = this.props
-    const formName = name || id
-    const validation = this.getValidation()
-    const formRowClass = classNames('form-row', {
-      'inline': isInline,
-      'error': validate && validation.isInvalid
-    })
-
+    const { 
+      id,
+      isRequired,
+      isInline,
+      placeholder,
+      buttonText,
+      label
+    } = this.props.field
+    
     return (
-      <div className={formRowClass}>
-        {this.renderLabelFor()}
-        <FileInput
-          id={id}
-          name={formName}
-          required={isRequired}
-          placeholder='Choose file...'
-          className='file-input'
-          onChange={this.onChangeValue} />
-        {/*<div className='file-upload-button'>Choose file</div>*/}
-        {this.renderValidationMessage(validation)}
-      </div>
+        <FormGroup controlId={id}>
+          <Col componentClass={ControlLabel} sm={isInline ? 3 : 12} >
+              {label}
+          </Col>
+          <Col sm={isInline ? 9 : 12} >
+            <FormControl type='file' name={id} placeholder={placeholder} id={id} className='form-control filestyle' tabIndex='-1' style={{position: 'absolute', clip: 'rect(0px, 0px, 0px, 0px)'}} />
+              <div className='bootstrap-filestyle input-group'>
+                  <span className='group-span-filestyle input-group-btn' tabIndex='0'>
+                      <label htmlFor={id} className='btn btn-default '>
+                          <span className='icon-span-filestyle glyphicon glyphicon-folder-open'></span>
+                          <span className='buttonText'>{buttonText}</span>
+                      </label>
+                  </span>
+                  <input type='text' className='form-control ' placeholder='' disabled='' />
+              </div>
+          </Col>
+      </FormGroup>
     )
   }
 
@@ -188,11 +103,17 @@ export default class FormFileInput extends Component {
   }
 
 }
-//
-// <input
-//   id={id}
-//   name={formName}
-//   type={type}
-//   required={isRequired}
-//   placeholder={placeholder}
-//   onChange={this.onChangeValue} />
+
+
+// (
+//     <FileInput
+//       id={id}
+//       name={formName}
+//       required={isRequired}
+//       placeholder='Choose file...'
+//       className='file-input'
+//       onChange={this.onChangeValue} />
+//     {/*<div className='file-upload-button'>Choose file</div>*/}
+//     {/*this.renderValidationMessage(validation)*/}
+//   </div>
+// )

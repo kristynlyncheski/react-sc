@@ -1,6 +1,5 @@
-import React from 'react'
 import FormInput from '../FormComponents/form-input'
-// import FormFileInput from '../FormComponents/form-file-input'
+import FormFileInput from '../FormComponents/form-file-input'
 // import FormTextarea from '../FormComponents/form-textarea'
 // import FormSelect from '../FormComponents/form-select'
 // import FormCheckbox from '../FormComponents/form-checkbox'
@@ -49,8 +48,8 @@ const getFormControl = (type, field) => {
       Component = FormInput
       break
     case 'file':
-      Component = FormInput
-    //   Component = FormFileInput
+      // Component = FormInput
+      Component = FormFileInput
       break
     case 'text-area':
     Component = FormInput
@@ -97,10 +96,6 @@ const getFormControl = (type, field) => {
       break
     case 'hidden':
       Component = FormHidden
-      additionalProps = {
-        name: field.id,
-        value: field.value
-      }
       break
     case 'none':
     //   Component = FormParagraph

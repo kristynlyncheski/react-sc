@@ -1,42 +1,31 @@
 import React, { Component } from 'react'
 import { PropTypes as PT } from 'prop-types'
-import classNames from 'classnames'
+import { FormGroup } from 'react-bootstrap'
 
 import './form-hidden.scss'
 
 export default class HiddenForm extends Component {
-
-  constructor (props) {
-    super(props)
-  }
-
   static propTypes = {
-    id: PT.string.isRequired,
-    name: PT.string,
-    type: PT.oneOf(['hidden']),
-    label: PT.string,
-    value: PT.string,
+    field: PT.shape({
+      id: PT.string.isRequired,
+      type: PT.oneOf(['hidden'])
+    })
   }
-
+  
   static defaultProps = {
-    type: 'text',
-    value: '',
-  }
-
-  getInputName () {
-    const { name, id } = this.props
-    return name || id
+    field: {
+      type: 'hidden',
+      value: '',
+    }
   }
 
   render () {
-    const { id, type, isInline, value } = this.props
+    const { id, value } = this.props.field
 
     return (
-      <input
-        id={id}
-        name={this.getInputName()}
-        type='hidden'
-        value={value} />
+      <FormGroup>
+          <input type='hidden' name={id} value={value} />
+      </FormGroup>
     )
   }
 }

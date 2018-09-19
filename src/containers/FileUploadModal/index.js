@@ -7,7 +7,7 @@ import './FileUploadModal.css'
 
 export default class FileUploadModal extends Component {
 
-    renderBody(form, i) {
+    renderFormPanels(form, i) {
         return (
             <Panel key={i} eventKey={i}>
                 <Panel.Heading>
@@ -35,7 +35,7 @@ export default class FileUploadModal extends Component {
                 value: "<?=$_GET['id']?>"
             },{
                 type: 'file',
-                id: 'uploadFileField',
+                id: 'uploadfile',
                 label: 'Select File',
                 placeholder: 'Optional',
                 buttonText: 'Choose file',
@@ -64,19 +64,19 @@ export default class FileUploadModal extends Component {
                 label: 'Select File',
                 placeholder: 'Optional',
                 buttonText: 'Choose file',
-                inline: true
+                isInline: true
             }, {
                 type: 'text',
                 id: 'fname',
                 label: 'Friendly Name',
                 placeholder: 'Optional',
-                inline: true
+                isInline: true
             }, {
                 type: 'text',
                 id: 'descrip',
                 label: 'File Description',
                 placeholder: 'Optional',
-                inline: true
+                isInline: true
             }]
         }]
 
@@ -87,7 +87,7 @@ export default class FileUploadModal extends Component {
                     defaultActiveKey={0} 
                     id='fileChoices'>
                     {forms.map((form, i) => {
-                        return this.renderBody(form, i)
+                        return this.renderFormPanels(form, i)
                     })}
                 </PanelGroup>
             </ModalContainer>

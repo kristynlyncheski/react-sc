@@ -4,8 +4,6 @@ import classNames from 'classnames'
 import getFormControl from '../form/cms-form-control-map'
 import { hyphenate } from 'utils/strings'
 
-import { FormSelectDependent } from 'components'
-
 import './form-select.scss'
 
 export default class FormSelect extends Component {
@@ -167,38 +165,6 @@ export default class FormSelect extends Component {
       }
     }
     return validation
-  }
-
-  renderDependent() {
-    if (this.state.dependent) {
-      const field = this.state.dependent
-      const {
-        form_field_id,
-        field_label,
-        field_content,
-        is_required,
-        is_inline
-      } = field
-      const contentTypes = undefined
-      const { additionalProps } = getFormControl('select-list', field, contentTypes)
-
-      const componentValue = this.extractComponentState(form_field_id)
-
-      return (
-        <FormSelectDependent
-          type='select-list'
-          id={form_field_id}
-          name={form_field_id}
-          sectionState={this.props.sectionState}
-          label={field_label}
-          value={componentValue}
-          placeholder={field_content}
-          onChange={this.props.onChange}
-          isRequired={is_required}
-          isInline={is_inline}
-          {...additionalProps} />
-      )
-    }
   }
 
   extractComponentState (form_field_id) {
