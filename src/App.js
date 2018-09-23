@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import FileUploadModal from './containers/FileUploadModal';
+import TaskModal from './containers/TaskModal';
 
 class App extends Component {
   render() {
     return (
-      <FileUploadModal />
+      <div>
+        <FileUploadModal />
+        <TaskModal />
+      </div>
     );
   }
 }
