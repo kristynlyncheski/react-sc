@@ -1,250 +1,250 @@
-@import '../../../theme/abstracts';
-@import 'react-select/dist/react-select.css';
+// @import '../../../theme/abstracts';
+// @import 'react-select/dist/react-select.css';
 
-.form-select {
-  &.Select {
-    display: flex;// IE fix to horizontally center dropdown arrows
-  }
+// .form-select {
+//   &.Select {
+//     display: flex;// IE fix to horizontally center dropdown arrows
+//   }
 
-  .Select-control {
-    @include input-field();
-    // @include font-definition(primary, 16);
+//   .Select-control {
+//     @include input-field();
+//     // @include font-definition(primary, 16);
 
-    padding: 0 15px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    border-radius: 0;
-    height: auto;
+//     padding: 0 15px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: flex-end;
+//     border-radius: 0;
+//     height: auto;
 
-    .Select-placeholder {
-      // @include font-definition(secondary, 16);
-      // @include font-definition(primary, 16);
+//     .Select-placeholder {
+//       // @include font-definition(secondary, 16);
+//       // @include font-definition(primary, 16);
 
-      padding: 0 15px;
-      color: $color-input-placeholder;
-      border: none;
-      line-height: 50px;
+//       padding: 0 15px;
+//       color: $color-input-placeholder;
+//       border: none;
+//       line-height: 50px;
 
-      &:active {
-        border: none;
-      }
-    }
+//       &:active {
+//         border: none;
+//       }
+//     }
 
-    .Select-value {
-      // @include font-definition(primary, 16);
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
+//     .Select-value {
+//       // @include font-definition(primary, 16);
+//       display: flex;
+//       align-items: center;
+//       justify-content: flex-start;
 
-      padding: 0 15px;
-      border: none;
-      line-height: 50px;
+//       padding: 0 15px;
+//       border: none;
+//       line-height: 50px;
 
-      &:active {
-        border: none;
-      }
-    }
-  }
+//       &:active {
+//         border: none;
+//       }
+//     }
+//   }
 
-  &.Select--multi .Select-control {
-    // @include font-definition(primary, 16);
+//   &.Select--multi .Select-control {
+//     // @include font-definition(primary, 16);
 
-    justify-content: space-between;
+//     justify-content: space-between;
 
-    .Select-value,
-    .Select-input {
-      // @include font-definition(primary, 16);
+//     .Select-value,
+//     .Select-input {
+//       // @include font-definition(primary, 16);
 
-      width: auto;
-      min-height: auto;
-      margin: 5px;
-      padding: 0;
-      transition: none;
-      background-color: $color-background-white;
-    }
+//       width: auto;
+//       min-height: auto;
+//       margin: 5px;
+//       padding: 0;
+//       transition: none;
+//       background-color: $color-background-white;
+//     }
 
-    .Select-input {
-      background-color: $color-input-background;
-    }
+//     .Select-input {
+//       background-color: $color-input-background;
+//     }
 
-    .Select-value-icon {
-      display: inline-block;
-      border: none;
-      margin: 5px;
-      width: 20px;
-      height: 20px;
-      text-indent: 100%;
-      overflow: hidden;
-      background: transparent url('../../../assets/icons/select-multi-remove.svg') 0 0 no-repeat;
-      background-size: contain;
+//     .Select-value-icon {
+//       display: inline-block;
+//       border: none;
+//       margin: 5px;
+//       width: 20px;
+//       height: 20px;
+//       text-indent: 100%;
+//       overflow: hidden;
+//       background: transparent url('../../../assets/icons/select-multi-remove.svg') 0 0 no-repeat;
+//       background-size: contain;
 
-      &:hover {
-        background-color: transparent;
-      }
-    }
+//       &:hover {
+//         background-color: transparent;
+//       }
+//     }
 
-    .Select-value-label {
-      color: $color-text-primary;
-      padding: 4px 10px 4px 0;
-    }
-  }
+//     .Select-value-label {
+//       color: $color-text-primary;
+//       padding: 4px 10px 4px 0;
+//     }
+//   }
 
-  .Select-arrow-zone {
-    padding-right: 10px;
+//   .Select-arrow-zone {
+//     padding-right: 10px;
 
-    .Select-arrow {
-      top: 50%;
-      margin-top: -3px;
-      border: solid transparent;
-      position: absolute;
-      border-top-color: $color-text-body;
-      border-width: 7.5px 5px 2.5px;
-    }
+//     .Select-arrow {
+//       top: 50%;
+//       margin-top: -3px;
+//       border: solid transparent;
+//       position: absolute;
+//       border-top-color: $color-text-body;
+//       border-width: 7.5px 5px 2.5px;
+//     }
 
-    &:hover > .Select-arrow {
-      border-top-color: $color-text-primary;
-    }
-  }
+//     &:hover > .Select-arrow {
+//       border-top-color: $color-text-primary;
+//     }
+//   }
 
-  &.is-focused {
-    & > .Select-control {
-      // border: solid 1px $color-input-active-border;
-      border: solid 1px $color-border;
-      box-shadow: none;
-      -webkit-appearance: none;
-      outline: none;
-    }
-  }
+//   &.is-focused {
+//     & > .Select-control {
+//       // border: solid 1px $color-input-active-border;
+//       border: solid 1px $color-border;
+//       box-shadow: none;
+//       -webkit-appearance: none;
+//       outline: none;
+//     }
+//   }
 
-  &.is-open {
-    & > .Select-control {
-      .Select-arrow {
-        border-top-color: $color-text-primary;
-      }
-    }
+//   &.is-open {
+//     & > .Select-control {
+//       .Select-arrow {
+//         border-top-color: $color-text-primary;
+//       }
+//     }
 
-    & > .Select-menu-outer {
-      background-color: $color-input-background;
-      // border-color: $color-input-active-border;
-      border-color: $color-border;
-    }
-  }
+//     & > .Select-menu-outer {
+//       background-color: $color-input-background;
+//       // border-color: $color-input-active-border;
+//       border-color: $color-border;
+//     }
+//   }
 
-  .Select-input > input,
-  .Select-input > input:focus {
-    min-height: auto;
-    border: none;
-  }
+//   .Select-input > input,
+//   .Select-input > input:focus {
+//     min-height: auto;
+//     border: none;
+//   }
 
-  .Select-menu-outer {
-    border-width: 0 1px 1px;
-    border-radius: 0;
-    border-color: transparent;
-    box-shadow: none;
-    // TODO: Add 'transition: border 0.3s ease-in-out;' when added to the DOM.
+//   .Select-menu-outer {
+//     border-width: 0 1px 1px;
+//     border-radius: 0;
+//     border-color: transparent;
+//     box-shadow: none;
+//     // TODO: Add 'transition: border 0.3s ease-in-out;' when added to the DOM.
 
-    .Select-menu {
-      .Select-option {
-        @include font-definition(primary, 16);
-        background-color: $color-input-background;
-        // min-height: 50px;
-        padding: 10px 15px 10px 30px;
-        color: $color-input-text;
+//     .Select-menu {
+//       .Select-option {
+//         @include font-definition(primary, 16);
+//         background-color: $color-input-background;
+//         // min-height: 50px;
+//         padding: 10px 15px 10px 30px;
+//         color: $color-input-text;
 
-        &.is-focused {
-          color: $color-input-text-focus;
-        }
+//         &.is-focused {
+//           color: $color-input-text-focus;
+//         }
 
-        &.is-disabled {
-          background-color: $color-input-background-disabled;
-          font-weight: bold;
-          color: $color-input-text-disabled;
-          padding-left: 15px;
-        }
-      }
-    }
-  }
+//         &.is-disabled {
+//           background-color: $color-input-background-disabled;
+//           font-weight: bold;
+//           color: $color-input-text-disabled;
+//           padding-left: 15px;
+//         }
+//       }
+//     }
+//   }
 
-  @media #{$gl-xs-md} {
-    .Select-control {
-      .Select-placeholder {
-        line-height: 50px;
-      }
-    }
-  }
-}
+//   @media #{$gl-xs-md} {
+//     .Select-control {
+//       .Select-placeholder {
+//         line-height: 50px;
+//       }
+//     }
+//   }
+// }
 
-.error {
-  .Select {
-    border: solid 1px $color-error;
-  }
-}
+// .error {
+//   .Select {
+//     border: solid 1px $color-error;
+//   }
+// }
 
-// for when it's in the masthead
-.masthead-select {
-  background-color: $color-background-light;
-  margin-bottom: 0;
-  padding-bottom: $spacing-big - 25;  //account for margin under dropdowns
+// // for when it's in the masthead
+// .masthead-select {
+//   background-color: $color-background-light;
+//   margin-bottom: 0;
+//   padding-bottom: $spacing-big - 25;  //account for margin under dropdowns
 
-  .form-content {
-    display: flex;
-    justify-content: space-between;
-    max-width: 850px;
-    margin: 0 auto;
+//   .form-content {
+//     display: flex;
+//     justify-content: space-between;
+//     max-width: 850px;
+//     margin: 0 auto;
 
-    .form-row {
-      width: pxToPercent(410, 850);
+//     .form-row {
+//       width: pxToPercent(410, 850);
 
-      &:only-child {
-        margin-left: auto;
-        margin-right: auto;
-      }
+//       &:only-child {
+//         margin-left: auto;
+//         margin-right: auto;
+//       }
 
-      .Select-control {
-        background: $color-background-white;
-        @include font-definition(primary, 16);
+//       .Select-control {
+//         background: $color-background-white;
+//         @include font-definition(primary, 16);
 
-      }
+//       }
 
-      label {
-        display: none;
-      }
-    }
-  }
+//       label {
+//         display: none;
+//       }
+//     }
+//   }
 
-  .app-form-section {
-    width: 100%;
+//   .app-form-section {
+//     width: 100%;
 
-    .form-column {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  }
+//     .form-column {
+//       flex-direction: row;
+//       justify-content: space-between;
+//     }
+//   }
 
-  @media #{$gl-xs-sm} {
-    .form-content {
-      flex-wrap: wrap;
-      padding-left: 20px;
-      padding-right: 20px;
+//   @media #{$gl-xs-sm} {
+//     .form-content {
+//       flex-wrap: wrap;
+//       padding-left: 20px;
+//       padding-right: 20px;
 
-      .form-row {
-        width: 70%;
-        margin-bottom: 15px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-  }
+//       .form-row {
+//         width: 70%;
+//         margin-bottom: 15px;
+//         margin-left: auto;
+//         margin-right: auto;
+//       }
+//     }
+//   }
 
-  @media #{$gl-xs-only} {
-    padding-bottom: $spacing-big-mobile - 15;
-  }
-}
+//   @media #{$gl-xs-only} {
+//     padding-bottom: $spacing-big-mobile - 15;
+//   }
+// }
 
-.app-form .form-row {
-  & > .form-row {
-    margin-top: 25px;
-    margin-bottom: 0;
-  }
-}
+// .app-form .form-row {
+//   & > .form-row {
+//     margin-top: 25px;
+//     margin-bottom: 0;
+//   }
+// }

@@ -1,0 +1,18 @@
+// remove the unit (i.e. px, em) from a number
+@function stripUnit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+      @return $number / ($number * 0 + 1);
+    }
+  
+    @return $number;
+  }
+  
+  // convert pixel to em value
+  @function pxToEm($px, $em-base: 16px) {
+    @return $px / $em-base * 1em;
+  }
+  
+  // convert pixel to % (a.k.a. Responsive Web Design Formula)
+  @function pxToPercent($target, $context: 1440) {
+    @return stripUnit($target / $context) * 100%;
+  }

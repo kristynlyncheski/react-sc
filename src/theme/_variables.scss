@@ -1,0 +1,57 @@
+// fonts
+$font-primary: 'Open Sans', sans-serif;
+
+//****************************************
+//  INTERNAL  PALETTE (Descriptive)
+//****************************************
+
+$_color-white: #faf9f9;
+
+$_color-gray-dark: #1b222c;
+$_color-gray-medium: #2c3a47;
+$_color-gray-light: #314150;
+$_color-gray-very-light: #F0F0F0;
+
+$_color-green-dark: #1e7587;
+$_color-green-medium: #34b2b6;
+$_color-green-light: #b6e8ec;
+
+$_color-pink: #f65f7c;
+$_color-blue: #20748c;
+
+$_color-error: #e50f0f;
+//****************************************
+//  EXTERNAL COLOR PALETTE (Semantic)
+//****************************************
+
+$_hover-gray-medium: #2F3E4C;
+$_hover-gray-light: #344556;
+$_hover-text-green: $_color-green-medium;
+
+$color-background-dark: $_color-gray-dark;
+$color-background-gray: $_color-gray-medium;
+$color-background-white: $_color-white;
+$color-background-green: $_color-green-medium;
+
+$color-background-sidebar: $_color-gray-light;
+
+$color-text-dark: $_color-gray-dark;
+$color-text-white: $_color-white;
+
+$color-border-dark: $_color-gray-dark;
+
+
+// spacing
+$spacing-big: 80px;
+$spacing-small: $spacing-big / 2;
+$spacing-smaller: $spacing-small / 2;
+
+$spacing-big-mobile: 60px;
+$spacing-small-mobile: $spacing-big-mobile / 2;
+
+// Breakpoint values
+$gl-xs-px: 320px;
+$gl-sm-px: 480px;
+$gl-md-px: 768px;
+$gl-lg-px: 1024px;
+$gl-max-px: 1440px;

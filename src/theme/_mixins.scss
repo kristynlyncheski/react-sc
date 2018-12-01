@@ -1,0 +1,27 @@
+@import './variables';
+
+// mixins
+@mixin content-container() {
+  max-width: 1440px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto !important; // grid styles sometime try to overwrite the margin.
+  margin-right: auto !important; // grid styles sometime try to overwrite the margin.
+  padding: 0 $margin-spacing;
+
+  @media (min-width: $gl-max-px) {
+    max-width: 1290px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@mixin container-padding() {
+  padding-top: $spacing-big;
+  padding-bottom: $spacing-big;
+
+  @media #{$gl-xs-only} {
+    padding-top: $spacing-big-mobile;
+    padding-bottom: $spacing-big-mobile;
+  }
+}
